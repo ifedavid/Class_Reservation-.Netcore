@@ -1,0 +1,43 @@
+﻿@page
+@model CRUD_Classes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClassModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.EndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.EndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Capacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Capacity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ClassModel.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

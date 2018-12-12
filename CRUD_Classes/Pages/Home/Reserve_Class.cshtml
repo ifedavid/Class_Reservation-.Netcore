@@ -1,0 +1,45 @@
+﻿@page
+@model ContactModel
+
+
+@{
+    ViewData["Title"] = "Reserve A Class";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3 class=text-danger>@Model.Message</h3>
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.EndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.EndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Capacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Capacity)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a class="btn btn-primary" asp-page="./Class_Catalogue">Back to List</a>
+</div>

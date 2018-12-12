@@ -1,0 +1,54 @@
+﻿@page
+@model CRUD_Classes.IndexModel
+
+@{
+    ViewData["Title"] = "Classes";
+}
+
+<h2>Class Manager</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassModel[0].Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassModel[0].StartTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassModel[0].EndTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassModel[0].Capacity)
+                </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ClassModel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

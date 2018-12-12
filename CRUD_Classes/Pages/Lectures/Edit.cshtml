@@ -1,0 +1,50 @@
+﻿@page
+@model CRUD_Classes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ClassModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClassModel.Id" />
+            <div class="form-group">
+                <label asp-for="ClassModel.Subject" class="control-label"></label>
+                <input asp-for="ClassModel.Subject" class="form-control" />
+                <span asp-validation-for="ClassModel.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassModel.StartTime" class="control-label"></label>
+                <input asp-for="ClassModel.StartTime" class="form-control" />
+                <span asp-validation-for="ClassModel.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassModel.EndTime" class="control-label"></label>
+                <input asp-for="ClassModel.EndTime" class="form-control" />
+                <span asp-validation-for="ClassModel.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassModel.Capacity" class="control-label"></label>
+                <input asp-for="ClassModel.Capacity" class="form-control" />
+                <span asp-validation-for="ClassModel.Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

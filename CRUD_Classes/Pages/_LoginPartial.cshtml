@@ -1,0 +1,97 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Admin Account
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ol class="list-unstyled">
+                                <li>
+                                    <a class="btn btn-block" asp-area="Identity" asp-page="/Account/Manage_Classes" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Account/Logout" class="btn-block btn">Manage Users</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Lectures/Index" class=" btn-block btn ">Manage Classes</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Account/Logout" class="btn btn-block">Logout</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </li>
+
+
+            }
+            else 
+            {
+
+                <li>
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Account
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ol class="list-unstyled">
+                                <li>
+                                    <a class="btn btn-block" asp-area="Identity" asp-page="/Account/Manage_Classes" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Account/Manage_Classes" class="btn-block btn">View Classes</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Account/Logout" class=" btn-block btn ">Logout</a>
+                                </li>
+                                
+                            </ol>
+                        </div>
+                    </div>
+
+                </li>
+            }
+        </ul>
+        </form>
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Account
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ol class="list-unstyled">
+                        <li>
+                            <a class="btn btn-block" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li>
+                            <a asp-page="/Account/signup" class="btn-block btn">Signup</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+}

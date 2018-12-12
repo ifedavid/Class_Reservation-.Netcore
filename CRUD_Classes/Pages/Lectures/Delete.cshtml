@@ -1,0 +1,46 @@
+﻿@page
+@model CRUD_Classes.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ClassModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.EndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.EndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassModel.Capacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassModel.Capacity)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ClassModel.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

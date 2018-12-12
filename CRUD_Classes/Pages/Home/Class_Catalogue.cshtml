@@ -1,0 +1,45 @@
+﻿@page
+@model AboutModel
+
+@{
+    ViewData["Title"] = "Class Catalogue";
+}
+<h2>@ViewData["Title"]</h2>
+<h4 class="text-danger " style="text-align:center">@Model.Message</h4>
+
+<table class="table table-condensed table-striped table-bordered table-responsive" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassModels[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassModels[0].Subject)
+            </th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ClassModels) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+
+                <a asp-page="./Reserve_Class" asp-route-id="@item.Id" class="btn btn-danger">Reserve</a>
+
+
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
